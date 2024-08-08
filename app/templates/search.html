@@ -7,11 +7,11 @@
 </head>
 <body>
     <h1>Search Questions</h1>
-    <form method="post">
+    <form method="POST" action="{{ url_for('main.search') }}">
         {{ form.hidden_tag() }}
         <p>
             {{ form.topic.label }}<br>
-            {{ form.topic(size=80) }}
+            {{ form.topic(size=60) }}
         </p>
         <p>
             {{ form.marks.label }}<br>
@@ -27,17 +27,37 @@
         </p>
         <p>
             {{ form.course_name.label }}<br>
-            {{ form.course_name(size=80) }}
+            {{ form.course_name(size=60) }}
         </p>
         <p>
             {{ form.answer_key.label }}<br>
-            {{ form.answer_key(cols=80, rows=3) }}
+            {{ form.answer_key(rows=5) }}
         </p>
         <p>
             {{ form.question_type.label }}<br>
             {{ form.question_type() }}
         </p>
-        <p>{{ form.submit() }}</p>
+        <p>
+            {{ form.submit() }}
+        </p>
     </form>
+
+    <h2>Results</h2>
+    <ul>
+        {% for question in questions %}
+            <li>
+                <strong>{{ question.question_text }}</strong><br>
+                Topic: {{ question.topic }}<br>
+                Marks: {{ question.marks }}<br>
+                Bloom's Taxonomy: {{ question.bt }}<br>
+                Course Outcome: {{ question.co }}<br>
+                Course Name: {{ question.course_name }}<br>
+                Answer Key: {{ question.answer_key }}<br>
+                Question Type: {{ question.question_type }}
+            </li>
+        {% else %}
+            <li>No questions found.</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

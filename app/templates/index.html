@@ -7,31 +7,22 @@
 </head>
 <body>
     <h1>Question Bank</h1>
-    <form method="get" action="{{ url_for('search') }}">
-        <input type="text" name="query" placeholder="Search questions...">
-        <input type="submit" value="Search">
-    </form>
-    <a href="{{ url_for('add') }}">Add New Question</a>
+    <a href="{{ url_for('main.add') }}">Add Question</a> | 
+    <a href="{{ url_for('main.search') }}">Search Questions</a>
     <ul>
         {% for question in questions %}
             <li>
-                <strong>Question Text:</strong> {{ question[1] }}<br>
-                <strong>Topic:</strong> {{ question[2] }}<br>
-                <strong>Marks:</strong> {{ question[3] }}<br>
-                <strong>BT:</strong> {{ question[4] }}<br>
-                <strong>CO:</strong> {{ question[5] }}<br>
-                <strong>Course Name:</strong> {{ question[6] }}<br>
-                <strong>Answer Key:</strong> {{ question[7] }}<br>
-                <strong>Question Type:</strong> {{ question[8] }}<br>
-                <ul>
-                    {% for file in question[9] %}
-                        <li><a href="{{ url_for('file', file_id=file[0]) }}">{{ file[1] }}</a></li>
-                    {% endfor %}
-                </ul>
-                <form action="{{ url_for('delete_question', question_id=question[0]) }}" method="post" style="display:inline;">
-                    <input type="submit" value="Delete">
-                </form>
+                <strong>{{ question.question_text }}</strong><br>
+                Topic: {{ question.topic }}<br>
+                Marks: {{ question.marks }}<br>
+                Bloom's Taxonomy: {{ question.bt }}<br>
+                Course Outcome: {{ question.co }}<br>
+                Course Name: {{ question.course_name }}<br>
+                Answer Key: {{ question.answer_key }}<br>
+                Question Type: {{ question.question_type }}
             </li>
+        {% else %}
+            <li>No questions found.</li>
         {% endfor %}
     </ul>
 </body>
