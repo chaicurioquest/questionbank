@@ -7,7 +7,7 @@ from io import BytesIO
 @app.route('/')
 def index():
     questions = Question.query.all()
-    return render_template('index.html', questions=questions)
+    return render_template('index.html', question=questions)
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():

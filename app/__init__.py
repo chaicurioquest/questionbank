@@ -15,5 +15,5 @@ def create_app():
     migrate.init_app(app, db)
 
     with app.app_context():
-        from . import routes, models  # Ensure routes are imported here
+        from . import routes, models
         return app
