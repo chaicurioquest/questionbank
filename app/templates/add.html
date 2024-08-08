@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Question</title>
+</head>
+<body>
+    <h1>Add Question</h1>
+    <form method="post" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        
+        <p>
+            {{ form.question_text.label }}<br>
+            {{ form.question_text(size=60) }}
+        </p>
+        
+        <p>
+            {{ form.topic.label }}<br>
+            {{ form.topic() }}<br>
+            {{ form.new_topic(size=40, placeholder='Enter new topic if not listed above') }}
+        </p>
+
+        <p>
+            {{ form.course_name.label }}<br>
+            {{ form.course_name() }}<br>
+            {{ form.new_course_name(size=40, placeholder='Enter new course name if not listed above') }}
+        </p>
+
+        <p>
+            {{ form.marks.label }}<br>
+            {{ form.marks() }}
+        </p>
+
+        <p>
+            {{ form.bt.label }}<br>
+            {{ form.bt() }}
+        </p>
+
+        <p>
+            {{ form.co.label }}<br>
+            {{ form.co() }}
+        </p>
+
+        <p>
+            {{ form.answer_key.label }}<br>
+            {{ form.answer_key(size=60) }}
+        </p>
+
+        <p>
+            {{ form.question_type.label }}<br>
+            {{ form.question_type() }}
+        </p>
+
+        <p>
+            {{ form.files.label }}<br>
+            {{ form.files() }}
+        </p>
+
+        <p><input type="submit" value="Submit"></p>
+    </form>
+</body>
+</html>

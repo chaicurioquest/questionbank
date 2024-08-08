@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Questions</title>
+</head>
+<body>
+    <h1>Search Questions</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.topic.label }}<br>
+            {{ form.topic(size=80) }}
+        </p>
+        <p>
+            {{ form.marks.label }}<br>
+            {{ form.marks() }}
+        </p>
+        <p>
+            {{ form.bt.label }}<br>
+            {{ form.bt() }}
+        </p>
+        <p>
+            {{ form.co.label }}<br>
+            {{ form.co() }}
+        </p>
+        <p>
+            {{ form.course_name.label }}<br>
+            {{ form.course_name(size=80) }}
+        </p>
+        <p>
+            {{ form.answer_key.label }}<br>
+            {{ form.answer_key(cols=80, rows=3) }}
+        </p>
+        <p>
+            {{ form.question_type.label }}<br>
+            {{ form.question_type() }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</body>
+</html>
